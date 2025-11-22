@@ -19,14 +19,14 @@ function renderText(text, className, baseWeight = 400) {
   ));
 }
 function setupTextHover(container, type) {
-  if (!container) return;
+  if (!container) return () => {};
   const letters = container.querySelectorAll("span");
   const { min, max, default: base } = FONT_WEIGHTS[type];
-  const animateLetter = (letter, Weight, duration = 0.25) => {
+  const animateLetter = (letter, weight, duration = 0.25) => {
     return gsap.to(letter, {
       duration,
       ease: "power2.out",
-      fontVariationSettings: `'wght' ${Weight}`,
+      fontVariationSettings: `'wght' ${weight}`,
     });
   };
   const handleMouseMove = (e) => {

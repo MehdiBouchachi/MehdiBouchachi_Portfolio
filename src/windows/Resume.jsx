@@ -17,7 +17,7 @@ function Resume() {
         <WindowControls target="resume" />
         <h2>Resume.pdf</h2>
         <a
-          href="files/CV_MehdiBouchachi.pdf"
+          href="files/Resume_MehdiBouchachi.pdf"
           download
           className="cursor-pointer"
           title="Download resume"
@@ -25,7 +25,7 @@ function Resume() {
           <Download className="icon" />
         </a>
       </div>
-      <Document file="files/CV_MehdiBouchachi.pdf">
+      <Document file="files/Resume_MehdiBouchachi.pdf">
         <Page pageNumber={1} renderTextLayer renderAnnotationLayer />
       </Document>
     </>

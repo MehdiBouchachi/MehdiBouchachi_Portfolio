@@ -99,22 +99,86 @@ const blogPosts = [
   },
 ];
 
+const courses = [
+  {
+    id: "javascript",
+    name: "JavaScript",
+    icon: "/icons/js.svg", 
+    basePath: "/files/javascript",
+    items: [
+      { id: 1, title: "Destructuring", file: "01-Destructuring.pdf" },
+      { id: 2, title: "Rest & Spread Operator", file: "02-RestSpread_Operator.pdf" },
+      { id: 3, title: "Template Literals", file: "03-Template_literals.pdf" },
+      {
+        id: 4,
+        title: "Ternaries Instead of if/else",
+        file: "04-Ternaries_Instead_of_if_else_Statements.pdf",
+      },
+      { id: 5, title: "Arrow Functions", file: "05-Arrow_Functions.pdf" },
+      {
+        id: 6,
+        title: "Short Circuiting & Logical Operators",
+        file: "06-Short-Circuiting_And_Logical_Operators.pdf",
+      },
+      { id: 7, title: "Optional Chaining", file: "07-Optional_Chaining.pdf" },
+      { id: 8, title: "Array Methods", file: "08-The_Array_Method.pdf" },
+      {
+        id: 9,
+        title: "Immutable Arrays",
+        file: "09-Working_With_Immutable_Arrays.pdf",
+      },
+      {
+        id: 10,
+        title: "Async / Await & Promises",
+        file: "10-Asynchronous_JavaScript_Promises_AsyncAwait.pdf",
+      },
+    ],
+  },
+
+  {
+    id: "java",
+    name: "Java for L2",
+    icon: "/icons/java.svg",
+    basePath: "/files/java",
+    items: [
+      {
+        id: 1,
+        title: "Java Basics (Java Intro PDF)",
+        file: "01-JAVA_BASICS.pdf",
+      },
+      {
+        id: 2,
+        title: "Java Fundamentals (AR)",
+        file: "02-JAVA_FUNDAMENTLS_ar.pdf",
+      },
+      {
+        id: 3,
+        title: "Java All-in-One (AR)",
+        file: "03-JAVA_ALL_IN_ONE_ar.pdf",
+      },
+    ],
+  },
+  
+];
+
+
 const techStack = [
   {
     category: "Frontend",
     items: ["React.js", "Next.js", "TypeScript"],
   },
-  {
-    category: "Mobile",
-    items: ["React Native", "Expo"],
-  },
+
   {
     category: "Styling",
-    items: ["Tailwind CSS", "Sass", "CSS"],
+    items: ["Tailwind CSS", "Sass", "CSS", "Styled-Components"],
+  },
+  {
+    category: "DevOps",
+    items: ["Docker", "Kubernetes", "AWS (ECS, EKS)"],
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express", "NestJS", "Hono"],
+    items: ["Node.js", "Express", "Nest.js"],
   },
   {
     category: "Database",
@@ -132,28 +196,28 @@ const socials = [
     text: "Github",
     icon: "/icons/github.svg",
     bg: "#f4656b",
-    link: "https://github.com/JavaScript-Mastery-Pro",
+    link: "https://github.com/MehdiBouchachi",
   },
   {
     id: 2,
-    text: "Platform",
+    text: "Whatsapp",
     icon: "/icons/atom.svg",
     bg: "#4bcb63",
-    link: "https://jsmastery.com/",
+    link: "https://wa.me/213667284306",
   },
   {
     id: 3,
     text: "Twitter/X",
     icon: "/icons/twitter.svg",
     bg: "#ff866b",
-    link: "https://x.com/jsmasterypro",
+    link: "https://x.com/Mehdi_Bouchachi",
   },
   {
     id: 4,
     text: "LinkedIn",
     icon: "/icons/linkedin.svg",
     bg: "#05b6f6",
-    link: "https://www.linkedin.com/company/javascriptmastery/posts/?feedView=all",
+    link: "https://www.linkedin.com/in/mehdi-bouchachi-79a874281/",
   },
 ];
 
@@ -209,6 +273,7 @@ export {
   navIcons,
   dockApps,
   blogPosts,
+  courses,
   techStack,
   socials,
   photosLinks,
@@ -222,9 +287,7 @@ const WORK_LOCATION = {
   icon: "/icons/work.svg",
   kind: "folder",
   children: [
-    /* =========================
-       ROW 1
-       ========================= */
+  
 
     {
       id: 5,
@@ -241,6 +304,12 @@ const WORK_LOCATION = {
           kind: "file",
           fileType: "txt",
           position: "top-6 left-10",
+          description: [
+            "The IMALEX website is a corporate platform designed for a science-driven startup focused on natural formulation and research & development.",
+            "It presents the company’s expertise, application areas, and research philosophy in a clear and structured way.",
+            "The project prioritizes credibility, clarity, and performance over marketing-heavy visuals.",
+            "Built with a modern frontend stack to ensure scalability, responsiveness, and long-term maintainability.",
+          ],
         },
         {
           id: 2,
@@ -278,6 +347,12 @@ const WORK_LOCATION = {
           kind: "file",
           fileType: "txt",
           position: "top-6 left-10",
+          description: [
+            "The Wild Oasis is a public-facing booking website for a vacation rental platform.",
+            "The application displays cabins, pricing, availability, and booking details in real time.",
+            "It connects to a shared Supabase backend used by the admin dashboard.",
+            "Built with Next.js and Tailwind CSS to ensure performance and responsive design.",
+          ],
         },
         {
           id: 2,
@@ -315,6 +390,12 @@ const WORK_LOCATION = {
           kind: "file",
           fileType: "txt",
           position: "top-6 left-10",
+          description: [
+            "Worldwise is an interactive travel application built around map-based exploration.",
+            "It allows users to track locations, dates, and travel history through an intuitive interface.",
+            "The project integrates Leaflet maps, routing, and date selection.",
+            "A mock backend is used to simulate real-world CRUD operations during development.",
+          ],
         },
         {
           id: 2,
@@ -337,9 +418,7 @@ const WORK_LOCATION = {
       ],
     },
 
-    /* =========================
-       ROW 2
-       ========================= */
+   
 
     {
       id: 6,
@@ -356,6 +435,12 @@ const WORK_LOCATION = {
           kind: "file",
           fileType: "txt",
           position: "top-6 left-10",
+          description: [
+            "AI Resume Analyzer is a smart tool that helps you perfect your resume with instant feedback.",
+            "Instead of guessing what recruiters want, you get AI-powered insights on keywords, formatting, and overall impact.",
+            "Think of it like having a career coach—pointing out strengths, fixing weaknesses, and boosting your chances of landing interviews.",
+            "It's built with Next.js and Tailwind, so it runs fast, looks professional, and works seamlessly on any device.",
+          ],
         },
         {
           id: 2,
@@ -393,6 +478,12 @@ const WORK_LOCATION = {
           kind: "file",
           fileType: "txt",
           position: "top-6 left-10",
+          description: [
+            "The Wild Oasis admin dashboard is a management system for hotel and rental operations.",
+            "It provides tools to manage cabins, bookings, guests, and revenue analytics.",
+            "The dashboard includes filtering, sorting, and real-time updates.",
+            "Built with React and modern state management for scalability and performance.",
+          ],
         },
         {
           id: 2,
@@ -430,6 +521,12 @@ const WORK_LOCATION = {
           kind: "file",
           fileType: "txt",
           position: "top-6 left-10",
+          description: [
+            "usePopcorn is a React application for browsing, rating, and tracking movies.",
+            "It allows users to manage watched lists and favorites.",
+            "The project focuses on reusable components and custom hooks.",
+            "It demonstrates clean state management with useState and useReducer.",
+          ],
         },
         {
           id: 2,
@@ -452,9 +549,7 @@ const WORK_LOCATION = {
       ],
     },
 
-    /* =========================
-       ROW 3
-       ========================= */
+   
 
     {
       id: 8,
@@ -471,6 +566,12 @@ const WORK_LOCATION = {
           kind: "file",
           fileType: "txt",
           position: "top-6 left-10",
+          description: [
+            "Order Pizza Store is a single-page web application for online pizza ordering.",
+            "Users can browse the menu, add items to the cart, and place orders.",
+            "Redux Toolkit is used to manage global application state.",
+            "The project demonstrates scalable architecture with React Router navigation.",
+          ],
         },
         {
           id: 2,

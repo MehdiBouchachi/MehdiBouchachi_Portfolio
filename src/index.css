@@ -115,9 +115,130 @@ body {
   #window-header {
     @apply flex items-center justify-between px-4 py-3 rounded-t-lg bg-gray-50 border-b border-gray-200 select-none text-sm text-gray-400;
   }
-
   #safari {
-    @apply w-4xl absolute top-40 left-2/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply w-4xl absolute top-40 left-2/12
+    bg-white shadow-2xl drop-shadow-2xl
+    rounded-xl overflow-hidden
+    flex flex-col;
+
+ 
+  
+    /* ================= HEADER SEARCH ================= */
+    .search {
+      @apply flex items-center gap-3 w-2/3
+        bg-white border border-gray-300
+        rounded-lg px-3 py-2;
+  
+      input {
+        @apply placeholder:text-gray-400 outline-none bg-transparent;
+      }
+    }
+  
+    /* ================= CONTENT AREA ================= */
+    .blog {
+      @apply flex-1 overflow-y-auto
+        p-10 max-w-5xl mx-auto
+        scroll-smooth;
+  
+      /* Title */
+      h2 {
+        @apply text-xl font-bold text-pink-600 mb-10;
+      }
+  
+      /* ================= OLD BLOG POSTS (SAFE TO KEEP) ================= */
+      .blog-post {
+        @apply grid grid-cols-12 gap-5;
+  
+        img {
+          @apply size-full rounded-md object-cover;
+        }
+  
+        .content {
+          @apply col-span-10 space-y-3;
+  
+          p {
+            @apply text-xs text-gray-500;
+          }
+  
+          h3 {
+            @apply font-semibold text-base text-gray-800;
+          }
+  
+          a {
+            @apply text-blue-600 text-xs
+              hover:underline
+              flex items-center gap-3;
+          }
+        }
+      }
+  
+      /* ================= PDF COURSE GRID ================= */
+/* ================= PDF PERFECT FIT ================= */
+
+/* Remove default padding/margins */
+      .react-pdf__Page {
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      /* Make canvas fill container */
+      .react-pdf__Page canvas {
+        width: 100% !important;
+        height: 100% !important;
+        display: block;           /* removes inline whitespace */
+      }
+
+      /* Hide text/annotation layers completely */
+      .react-pdf__Page__textContent,
+      .react-pdf__Page__annotations {
+        display: none !important;
+      }
+
+      .course-grid {
+        max-height: 420px; /* ~2.5 rows */
+        overflow-y: auto;
+        padding-right: 6px;
+      }
+      
+
+      .pdf-card {
+        @apply rounded-xl
+          bg-white p-3
+          transition-all duration-200
+          cursor-pointer;
+      
+        /* REMOVE BORDER COMPLETELY */
+        border: none !important;
+      
+        &:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+      
+        canvas {
+          @apply rounded-lg;
+          background: transparent !important;
+        }
+      }
+      
+  
+      .pdf-title {
+        @apply mt-3 text-sm font-medium
+          text-gray-800
+          group-hover:text-blue-600
+          transition;
+      }
+
+      /* Smooth canvas zoom on hover */
+     
+
+     
+
+    }
+  }
+  
+/*   #safari {
+    @apply w-4xl absolute top-40 left-2/12 bg-white shadow-2xl rounded-xl overflow-hidden flex flex-col;
 
     .search {
       @apply flex items-center gap-3 w-2/3 bg-white border border-gray-300 rounded-lg px-3 py-2;
@@ -128,7 +249,7 @@ body {
     }
 
     .blog {
-      @apply bg-white p-10 max-w-3xl mx-auto;
+      @apply flex-1 overflow-y-auto p-10 max-w-4xl mx-auto;
 
       h2 {
         @apply text-xl font-bold text-pink-600 mb-10;
@@ -158,7 +279,7 @@ body {
         }
       }
     }
-  }
+  } */
 
   #terminal {
     @apply w-xl absolute top-32 left-1/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
@@ -175,22 +296,29 @@ body {
       }
 
       .content {
-        @apply py-5 my-5 border-y border-dashed space-y-1;
-
-        li {
-          .check {
-            @apply text-[#00A154] w-5;
-          }
-
-          h3 {
-            @apply font-semibold text-[#00A154] w-32 ms-5;
-          }
-
-          ul {
-            @apply flex items-center gap-3;
-          }
+        @apply py-5 my-5 border-y border-dashed space-y-2;
+      
+        .stack-row {
+          @apply flex items-start gap-3;
+        }
+      
+        .check {
+          @apply text-[#00A154] w-5 mt-1;
+        }
+      
+        h3 {
+          @apply font-semibold text-[#00A154] w-32 shrink-0;
+        }
+      
+        .items {
+          @apply flex flex-wrap gap-x-2 gap-y-1 max-w-[420px];
+        }
+      
+        .items li {
+          @apply whitespace-nowrap;
         }
       }
+      
 
       .footnote {
         @apply text-[#00A154] space-y-1;

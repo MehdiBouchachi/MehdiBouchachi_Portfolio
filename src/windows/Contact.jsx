@@ -12,8 +12,8 @@ function Contact() {
       <div className="p-5 space-y-5">
         <img
           className="w-20 rounded-full"
-          src="/images/adrian.jpg"
-          alt="Adrian"
+          src="/images/mehdi-logo.jpg"
+          alt="Mehdi Logo"
         />
 
         <h3>Let's Connect</h3>

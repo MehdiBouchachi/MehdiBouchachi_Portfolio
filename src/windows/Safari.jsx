@@ -81,56 +81,98 @@ function Safari() {
           <>
             <h2>Courses</h2>
 
-            <div className="space-y-6">
-              {courses.map((cat) => (
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+            {courses.map((cat) => (
+              <div
+                key={cat.id}
+                onClick={() => setActiveCategory(cat)}
+                className="
+                  group cursor-pointer
+                  rounded-2xl bg-white
+                  p-8 flex flex-col items-center
+                  shadow-sm hover:shadow-xl
+                  transition-all duration-300
+                "
+              >
                 <div
-                  key={cat.id}
-                  className="flex items-center gap-4 cursor-pointer"
-                  onClick={() => setActiveCategory(cat)}
+                  className="
+                    w-20 h-20 rounded-2xl
+                    bg-gray-100
+                    flex items-center justify-center
+                    group-hover:scale-110 transition
+                  "
                 >
-                  <img src={cat.icon} className="w-10" />
-                  <h3 className="font-semibold">{cat.name}</h3>
+                  <img
+                    src={cat.icon}
+                    alt={cat.name}
+                    className="w-12 h-12 object-contain"
+                  />
                 </div>
-              ))}
+
+                <h3 className="mt-4 text-lg font-semibold text-gray-800">
+                  {cat.name}
+                </h3>
+
+                <p className="mt-1 text-xs text-gray-500">
+                  {cat.items.length} lessons
+                </p>
+              </div>
+            ))}
+          </div>
+
+                    </>
+                  )}
+
+{activeCategory && !activePdf && (
+  <>
+    <h2>{activeCategory.name}</h2>
+
+    {/* EMPTY STATE */}
+    {activeCategory.items.length === 0 && (
+      <div className="flex flex-col items-center justify-center h-[40vh] text-center">
+        <div className="text-6xl mb-4">🚧</div>
+        <h3 className="text-xl font-semibold text-gray-800">
+          Coming Soon
+        </h3>
+        <p className="text-sm text-gray-500 mt-2 max-w-xs">
+          This course is currently under preparation.
+          Content will be available very soon.
+        </p>
+      </div>
+    )}
+
+    {/* PDF GRID */}
+    {activeCategory.items.length > 0 && (
+      <div className="course-grid grid grid-cols-2 md:grid-cols-3 gap-8">
+        {activeCategory.items.map((item) => {
+          const pdfPath = `${activeCategory.basePath}/${item.file}`;
+
+          return (
+            <div
+              key={item.id}
+              className="group cursor-pointer"
+              onClick={() => setActivePdf(pdfPath)}
+            >
+              <div className="pdf-card">
+                <Document file={pdfPath}>
+                  <Page
+                    pageNumber={1}
+                    width={200}
+                    renderTextLayer={false}
+                    renderAnnotationLayer={false}
+                  />
+                </Document>
+              </div>
+
+              <p className="pdf-title">{item.title}</p>
             </div>
-          </>
-        )}
+          );
+        })}
+      </div>
+    )}
+  </>
+)}
 
-        {activeCategory && !activePdf && (
-          <>
-            <h2>{activeCategory.name}</h2>
-
-            <div className="course-grid grid grid-cols-3 gap-6">
-
-              {activeCategory.items.map((item) => {
-                const pdfPath = `${activeCategory.basePath}/${item.file}`;
-
-                return (
-                  <div
-                    key={item.id}
-                    className="cursor-pointer group"
-                    onClick={() => setActivePdf(pdfPath)}
-                  >
-                    <div className="rounded-lg overflow-hidden shadow-sm group-hover:shadow-md transition">
-                      <Document file={pdfPath}>
-                        <Page
-                          pageNumber={1}
-                          width={180}
-                          renderTextLayer={false}
-                          renderAnnotationLayer={false}
-                        />
-                      </Document>
-                    </div>
-
-                    <p className="mt-2 text-sm font-medium text-gray-700 group-hover:text-blue-600 transition">
-                      {item.title}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </>
-        )}
 
         {/* ========= 3️⃣ FULL PDF VIEWER ========= */}
         {activePdf && (

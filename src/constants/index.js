@@ -158,6 +158,13 @@ const courses = [
       },
     ],
   },
+  {
+    id: "react",
+    name: "React",
+    icon: "/icons/react.svg",
+    basePath: "/files/react",
+    items: [],
+  },
   
 ];
 

@@ -103,11 +103,15 @@ const courses = [
   {
     id: "javascript",
     name: "JavaScript",
-    icon: "/icons/js.svg", 
+    icon: "/icons/js.svg",
     basePath: "/files/javascript",
     items: [
       { id: 1, title: "Destructuring", file: "01-Destructuring.pdf" },
-      { id: 2, title: "Rest & Spread Operator", file: "02-RestSpread_Operator.pdf" },
+      {
+        id: 2,
+        title: "Rest & Spread Operator",
+        file: "02-RestSpread_Operator.pdf",
+      },
       { id: 3, title: "Template Literals", file: "03-Template_literals.pdf" },
       {
         id: 4,
@@ -165,9 +169,7 @@ const courses = [
     basePath: "/files/react",
     items: [],
   },
-  
 ];
-
 
 const techStack = [
   {
@@ -205,12 +207,19 @@ const socials = [
     bg: "#f4656b",
     link: "https://github.com/MehdiBouchachi",
   },
-  {
+  /*  {
     id: 2,
     text: "Whatsapp",
     icon: "/icons/atom.svg",
     bg: "#4bcb63",
     link: "https://wa.me/213667284306",
+  }, */
+  {
+    id: 2,
+    text: "Telegram",
+    icon: "/icons/telegram.png",
+    bg: "#2AABEE",
+    link: "https://t.me/MehdiBouchachi", // change username if needed
   },
   {
     id: 3,
@@ -294,8 +303,6 @@ const WORK_LOCATION = {
   icon: "/icons/work.svg",
   kind: "folder",
   children: [
-  
-
     {
       id: 5,
       name: "IMALEX Website",
@@ -424,8 +431,6 @@ const WORK_LOCATION = {
         },
       ],
     },
-
-   
 
     {
       id: 6,
@@ -556,8 +561,6 @@ const WORK_LOCATION = {
       ],
     },
 
-   
-
     {
       id: 8,
       name: "Order Pizza Store",
@@ -610,7 +613,7 @@ const ABOUT_LOCATION = {
   icon: "/icons/info.svg",
   kind: "folder",
   children: [
-    {
+    /*  {
       id: 1,
       name: "me.png",
       icon: "/images/image.png",
@@ -652,7 +655,7 @@ const ABOUT_LOCATION = {
         "I’m big on clean UI, good UX, and writing code that doesn’t need a search party to debug.",
         "Outside of dev work, you'll find me tweaking layouts at 2AM, sipping overpriced coffee, or impulse-buying gadgets I absolutely convinced myself I needed 😅",
       ],
-    },
+    }, */
   ],
 };
 
